@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: teacher-service
+  labels:
+    app: teacher-service
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: teacher-service
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: teacher-service
+    spec:
+      containers:
+        - image: 517141035927.dkr.ecr.us-east-1.amazonaws.com/teacher-service:latest
+          imagePullPolicy: Always
+          name: teacher-service
+          ports:
+            - containerPort: 605
+              protocol: TCP

@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: teacher-service
+spec:
+  selector:
+    app: teacher-service
+  type: LoadBalancer
+  ports:
+    -  protocol: TCP
+       port: 80
+       targetPort: 605

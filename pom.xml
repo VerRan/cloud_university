@@ -39,6 +39,10 @@
         <module>teacher-service</module>
         <module>user-service</module>
         <module>promotion-service</module>
+        <module>bigdata</module>
+        <module>all-search-service</module>
+        <module>offer-service</module>
+        <module>spark-stream-test</module>
     </modules>
 
     <dependencies>

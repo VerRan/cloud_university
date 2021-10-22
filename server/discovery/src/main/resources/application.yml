@@ -5,6 +5,7 @@ eureka:
   eviction-interval-timer-in-ms: 4000 # 清理列表间隔时间 清理间隔（单位毫秒，默认是60*1000）
   instance:
     hostname: master
+    instanceId: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}
   client:
     serviceUrl:
       defaultZone: http://slave:8762/eureka/

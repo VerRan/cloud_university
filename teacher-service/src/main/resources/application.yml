@@ -9,6 +9,6 @@ eureka:
     serviceUrl:
 #      defaultZone: http://localhost:8761//eureka/
 #       defaultZone: https://${spring.cloud.eureka.user.name}:${spring.cloud.eureka.user.password}@v1199.net:${config.server.port}/eureka
-       defaultZone: http://master:8761/eureka/,http://slave:8762/eureka/
+       defaultZone: http://35.153.205.153:8761/eureka/,http://3.91.236.134:8762/eureka/
   instance:
     preferIpAddress: true

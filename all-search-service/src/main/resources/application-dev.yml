@@ -1,0 +1,20 @@
+#server:
+#  port: 603
+#  tomcat:
+#    uri-encoding: UTF-8
+#  session:
+#     timeout: 15 # 15 Session timeout in seconds
+
+#####设置日志######
+logging:
+   file: ..//logs//all-search.log
+   level:
+     root: info
+spring:
+   h2:
+     console:
+       enabled: true
+elasticsearch:
+   clustername: elasticsearch
+   host: localhost
+   port: 9300

@@ -1,0 +1,24 @@
+server:
+  port: 605
+  tomcat:
+    uri-encoding: UTF-8
+  session:
+     timeout: 15 # 15 Session timeout in seconds
+
+#####设置日志######
+logging:
+   file: ..//logs//offer.log
+   level:
+     root: info
+spring:
+   h2:
+     console:
+       enabled: true
+eureka:
+  client:
+    serviceUrl:
+      #      defaultZone: http://localhost:8761//eureka/
+      #       defaultZone: https://${spring.cloud.eureka.user.name}:${spring.cloud.eureka.user.password}@v1199.net:${config.server.port}/eureka
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    preferIpAddress: true
