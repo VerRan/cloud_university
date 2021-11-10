@@ -18,7 +18,7 @@ public class SparkSQL {
                 .appName("SparkSQL Test")
                 .config(sparkConf)
                 .getOrCreate();
-        Dataset<String> users_df= sparkSession.read().textFile("/tmp/users.txt");
+        Dataset<String> users_df= sparkSession.read().textFile("users.txt");
         users_df.show();
 
         Dataset<Row> employee_df= sparkSession.read().json("bigdata/src/main/resources/employee.json");
@@ -48,7 +48,5 @@ public class SparkSQL {
         Dataset<Employee> employeeDataset = sparkSession
                 .createDataset(Collections.singletonList(employee),employeeEncoder);
         employeeDataset.show();
-
-
     }
 }

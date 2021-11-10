@@ -42,7 +42,9 @@
         <module>bigdata</module>
         <module>all-search-service</module>
         <module>offer-service</module>
-        <module>spark-stream-test</module>
+        <!--<module>spark-stream-test</module>-->
+        <module>media-service-aws</module>
+
     </modules>
 
     <dependencies>

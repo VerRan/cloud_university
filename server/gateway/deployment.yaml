@@ -1,15 +1,15 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: discovery-service
+  name: gateway-service
   labels:
-    app: discovery-service
+    app: gateway-service
   namespace: default
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: discovery-service
+      app: gateway-service
   strategy:
     rollingUpdate:
       maxSurge: 25%
@@ -18,12 +18,12 @@ spec:
   template:
     metadata:
       labels:
-        app: discovery-service
+        app: gateway-service
     spec:
       containers:
-        - image: 517141035927.dkr.ecr.us-east-1.amazonaws.com/discovery:latest
+        - image: 517141035927.dkr.ecr.us-east-1.amazonaws.com/gateway:latest
           imagePullPolicy: Always
-          name: user-service
+          name: gateway-service
           ports:
-            - containerPort: 8761
+            - containerPort: 9000
               protocol: TCP

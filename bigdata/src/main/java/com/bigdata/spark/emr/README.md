@@ -23,16 +23,6 @@
 * 当前项目已编写了docker file ，可以通过docker自行构建镜像部署
 * docker-compose 进行docker编排方式 ，docker-compose 使用可自行查询，docker-compose.yml在项目根目录下
 * kubernates 进行docker编排方式，当前处于试验阶段待进一步补充
-## 部署应用到k8s(EKS)
-这里我们采用AWS托管的k8s集群部署我们的应用，当您将自己的微服务运行到k8s时需要以下步骤：
-1. 微服务容器化，这部在上一步已经描述主要是编写docker file
-2. 编写容器编排文件，这里主要是针对k8s的编排文件编写，用于指导将容器融合编排并运行在K8s中
-3. 通过kubctl进行服务的管理
-
-### 编写编排文件
-
-
-
 # 效果展示与说明
 ## 微服务监控与管理
 ![](https://github.com/VerRan/photo/blob/master/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9B%91%E6%8E%A7-springbootadmin.png)

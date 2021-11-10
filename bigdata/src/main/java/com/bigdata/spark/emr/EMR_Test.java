@@ -1,4 +1,4 @@
-package com.bigdata.spark;
+package com.bigdata.spark.emr;
 
 import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaRDD;
@@ -6,10 +6,11 @@ import org.apache.spark.api.java.JavaSparkContext;
 import org.apache.spark.api.java.function.Function;
 
 import java.util.List;
+
 // 环境准备启动spark http://spark.apache.org/docs/latest/spark-standalone.html
 // ./sbin/start-all.sh
 //hystrix 监控 https://www.jianshu.com/p/88a6c0c764f4
-public class SparkRDD {
+public class EMR_Test {
 
     static class ContainsFunction implements Function<String,Boolean> {
 
@@ -29,7 +30,7 @@ public class SparkRDD {
     }
 
         public static  void main(String args[]){
-            String logFile = "/Users/lht/workspace/cloud_university/README.md";
+            String logFile = "./README.md";
             SparkConf sparkConf = new SparkConf()
                     .setAppName("Spark_Word_Count")
                     .setSparkHome("/Users/lht/bigdata/spark-2.4.3-bin-hadoop2.7")
