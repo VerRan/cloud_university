@@ -21,7 +21,7 @@
 * 进入server/config/target 目录执行 ``java -jar config-0.1-SNAPSHOT.jar`` 统一配置 服务
 启动业务代码
 * 进入user-service/target 目录执行 ``java -jar user-0.1-SNAPSHOT.jar`` 启动用户微服务
-## 容器运行方式
+## docker-compose运行
 * 当前docker镜像通过ECR进行管理
 * 当前项目已编写了docker file ，可以通过docker自行构建镜像部署
 * docker-compose 进行docker编排方式 ，docker-compose 使用可自行查询，docker-compose.yml在项目根目录下
