@@ -19,17 +19,33 @@
 启动业务代码
 * 进入user-service/target 目录执行 ``java -jar user-0.1-SNAPSHOT.jar`` 启动用户微服务
 ## 容器运行方式
-* 当前docker镜像未托管，待上传后补充。
+* 当前docker镜像通过ECR进行管理
 * 当前项目已编写了docker file ，可以通过docker自行构建镜像部署
 * docker-compose 进行docker编排方式 ，docker-compose 使用可自行查询，docker-compose.yml在项目根目录下
-* kubernates 进行docker编排方式，当前处于试验阶段待进一步补充
 ## 部署应用到k8s(EKS)
 这里我们采用AWS托管的k8s集群部署我们的应用，当您将自己的微服务运行到k8s时需要以下步骤：
 1. 微服务容器化，编写 docker file 对应微服务中的Dockerfile
 2. 编写容器编排文件，这里主要是针对k8s的编排文件编写，用于指导将容器融合编排并运行在K8s中，对应 Deployment.xml ,service.xml等
 3. 通过kubctl 部署微服务
 4. 通过kubesphere进行eks集群和服务的管理
+## 使用kubesphere管理集群
+在已有集群上部署：
+https://kubesphere.io/zh/docs/installing-on-kubernetes/hosted-kubernetes/install-kubesphere-on-eks/
 
+* 执行如下yaml安装kubesphere
+kubectl apply -f https://github.com/kubesphere/ks-installer/releases/download/v3.2.0/kubesphere-installer.yaml
+kubectl apply -f https://github.com/kubesphere/ks-installer/releases/download/v3.2.0/cluster-configuration.yaml
+
+* 检查日志：
+kubectl logs -n kubesphere-system $(kubectl get pod -n kubesphere-system -l app=ks-install -o jsonpath='{.items[0].metadata.name}') -f
+
+* 修改服务类型为loadbalancer便于访问
+kubectl get svc -n kubesphere-system
+kubectl edit svc ks-console -n kubesphere-system  --将nodeType修改为LoadBalancer
+kubectl get svc -n kubesphere-system --查看elb地址
+使用elb的dns访问kuberspehere web console
+默认用户名密码 admin/P@88w0rd,效果：
+![](https://github.com/VerRan/photo/blob/master/kubesphere.png)
 # 效果展示与说明
 ## 微服务监控与管理
 ![](https://github.com/VerRan/photo/blob/master/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9B%91%E6%8E%A7-springbootadmin.png)
